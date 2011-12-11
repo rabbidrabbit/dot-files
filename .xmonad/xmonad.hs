@@ -10,7 +10,7 @@ main = do
     xmproc <- spawnPipe "xmobar $HOME/.xmobarrc"
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> myManageHook
-                        <+> manageHook defaultConfig
+                        <+> manageHook defauonad/ltConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , borderWidth = 1 
         , terminal = myTerminal
@@ -23,4 +23,5 @@ main = do
         } `additionalKeys`
         [((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
+        , ((modMask, xK_P), spawn "dmenu_run")
         ]
