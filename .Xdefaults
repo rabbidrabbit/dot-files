@@ -83,13 +83,15 @@
 *color10: #8fb676
 *color3:  #d0d26b
 *color11: #c8bc45
-*color4 : #77b6c5
+! *color4 : #323742
+*color4: #77b6c5
 *color12: #8fa7b9
 *color5:  #a488d9
 *color13: #8888a1
 *color6:  #7fcab3
 *color14: #6ec2a8
-*color7:  #8d8d8d
+!*color7:  #658289
+*color7: #8d8d8d
 *color15: #dad3d3
 
 URxvt*background:  #2d2d2d

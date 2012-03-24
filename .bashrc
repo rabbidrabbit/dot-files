@@ -1,9 +1,15 @@
-# .bashrc
+#
+# ~/.bashrc
+#
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-fi
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-# User specific aliases and functions
+alias ls='ls --color=auto'
+#PS1=$'[\u@\h]-[\W]$(__git_ps1 "-[\e[0;31m%s\e[0m]")\$ '
+PS1=$'[\u@\h]-[\W]$(__git_ps1 "-[%s]")\$ '
 alias cd..='cd ..'
+alias grep='grep --color'
+alias diff="colordiff"
+export EDITOR='vim'
+export BROWSER='/usr/bin/chromium'

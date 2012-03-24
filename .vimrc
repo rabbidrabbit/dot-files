@@ -72,7 +72,19 @@ set background=dark " When set to "dark", Vim will try to use colors that look
                     " Any other value is illegal.
  
 set mouse=a         " Enable the use of the mouse.
- 
+
+set t_Co=16         " Fixes the solarized colorscheme
+
 filetype plugin indent on
 syntax on
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
+set spelllang=en_gb
+set wildmenu
+
+map <F9> :CMiniBufExplorer <CR>
+map <F8> :tabn <CR>
+map <F7> :tabp <CR>

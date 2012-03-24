@@ -5,15 +5,15 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
  
- 
+myTerminal = "/usr/bin/urxvt" 
 main = do
     xmproc <- spawnPipe "xmobar $HOME/.xmobarrc"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> myManageHook
-                        <+> manageHook defauonad/ltConfig
+        { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        , borderWidth = 1 
-        , terminal = myTerminal
+        , modMask = mod4Mask
+        , borderWidth = 1
+	, terminal = myTerminal
         , focusedBorderColor = "#d74b73"
         , normalBorderColor = "#3d3d3d"
         , logHook = dynamicLogWithPP xmobarPP
@@ -23,5 +23,6 @@ main = do
         } `additionalKeys`
         [((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
-        , ((modMask, xK_P), spawn "dmenu_run")
+	, ((controlMask, xK_Delete), spawn "dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop")
+	, ((controlMask, xK_Pause), spawn "dbus-send --system --print-reply --dest=\"org.freedesktop.UPower\" /org/freedesktop/UPower org.freedesktop.UPower.Suspend")
         ]
