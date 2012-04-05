@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
+import XMonad.Hooks.EwmhDesktops
  
 myTerminal = "/usr/bin/urxvt" 
 main = do
@@ -12,6 +13,7 @@ main = do
         { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , modMask = mod4Mask
+        , handleEventHook    = fullscreenEventHook
         , borderWidth = 1
 	, terminal = myTerminal
         , focusedBorderColor = "#d74b73"
