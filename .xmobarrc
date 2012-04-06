@@ -1,16 +1,18 @@
 Config { font = "xft:Terminus:pixelsize=9:antialias=true"
        , bgColor = "#2d2d2d"
        , fgColor = "#808080"
+       , border = BottomBM(0)
+       , borderColor = "#3d3d3d"
        , position = TopW L 100
        , lowerOnStart = True
        , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-		    , Run Battery ["-t", "Batt:<watts> <left>%", "-H", "75", "-L", "15", "--low", "red", "--high", "green"] 600
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Date "%a %b %_d %l:%M" "date" 10
-		    , Run ThermalZone 0 ["-t", "Temp: <temp>C", "-H", "75", "--high", "red", "-L", "55", "--low", "green"]30
-                    , Run StdinReader
-                    ]
+            , Run Battery ["-t", "Batt:<watts> <left>%", "-H", "75", "-L", "15", "--low", "red", "--high", "green"] 600
+            , Run Memory ["-t","Mem: <usedratio>%"] 10
+            , Run Swap [] 10
+            , Run Date "%a %b %_d %l:%M" "date" 10
+            , Run ThermalZone 0 ["-t", "Temp: <temp>C", "-H", "75", "--high", "red", "-L", "55", "--low", "green"]30
+            , Run StdinReader
+        ]
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%StdinReader% }{%cpu% | %memory% * %swap% | <fc=#ee9a00>%date%</fc> | %thermal0% | %battery%"
