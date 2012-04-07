@@ -1,18 +1,24 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
-import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
 import XMonad.Config.Gnome
  
-myTerminal = "/usr/bin/urxvt" 
+myTerminal = "/usr/bin/urxvt"
+
+myManageHooks = composeAll
+    [ isFullscreen --> doFullFloat
+    ]
+
 main = do
     xmproc <- spawnPipe "xmobar $HOME/.xmobarrc"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> manageHook defaultConfig
+        { manageHook = manageDocks <+> myManageHooks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $ smartBorders $ layoutHook defaultConfig
         , modMask = mod4Mask
         , handleEventHook    = fullscreenEventHook

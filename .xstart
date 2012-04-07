@@ -1,5 +1,6 @@
 #set the cursor
 xsetroot -cursor_name left_ptr -solid '#121212'
+xsetroot -solid '#2d2d2d'
 setxkbmap -layout gb
 xset +fp /usr/share/fonts/local
 xset fp rehash
