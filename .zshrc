@@ -33,5 +33,10 @@ alias ls='ls --color'
 alias cd..='cd ..'
 alias grep='grep --color'
 alias diff='colordiff'
+
+bindkey -v
+
 export EDITOR='vim'
 export BROWSER='/usr/bin/chromium'
+export GOPATH='/home/jonathan/go'
+export PATH=$PATH:/home/jonathan/.gem/runy/1.9.1/bin
