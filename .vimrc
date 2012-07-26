@@ -47,7 +47,7 @@ set autoindent      " Copy indent from current line when starting a new line
                     " (typing <CR> in Insert mode or when using the "o" or "O"
                     " command).
  
-set textwidth=79    " Maximum width of text that is being inserted. A longer
+"set textwidth=79    " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
  
 set formatoptions=c,q,r,t " This is a sequence of letters which describes how
@@ -88,3 +88,20 @@ set wildmenu
 map <F9> :CMiniBufExplorer <CR>
 map <F8> :tabn <CR>
 map <F7> :tabp <CR>
+
+set pastetoggle=<F2>    " fixes the extra tabs that are added sometimes when pasting code
+map <F3> gg=G           " autoformat !!!
+
+"set dict=/usr/share/dict/british-english
+"set complete-=k complete +=k
+"set ofu=syntaxcomplete
+
+function! TabOrComplete()
+    if col('.')>1 && strpart( getline('.'), col('.')-2, 3) =~ '^\w'
+        return "\<C-N>"
+    else
+        return "\<Tab>"
+    endif
+endfunction
+
+"inoremap <Tab> <C-R>=TabOrComplete()<CR>
