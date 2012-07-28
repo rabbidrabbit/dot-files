@@ -105,3 +105,5 @@ function! TabOrComplete()
 endfunction
 
 "inoremap <Tab> <C-R>=TabOrComplete()<CR>
+
+ca w!! w !sudo tee >/dev/null "%" "save a file as root. Use :w!! and vim will ask you for your password
