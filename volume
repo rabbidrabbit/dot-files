@@ -1,3 +1,11 @@
 #!/bin/zsh
 
-echo `amixer sget Master|grep -Po "\d+%"`
+info=`amixer sget Master`
+s=`echo $info | grep -Pwo "o[nf]f?"` 
+
+if [ "$s" =  "on" ]
+then
+    echo `echo $info |grep -Po "\d+%"`
+else
+    echo "off"
+fi 
