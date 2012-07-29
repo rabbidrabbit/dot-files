@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-n=`curl -u email:password --silent "https://mail.google.com/mail/feed/atom" | grep -Po "(?<=<fullcount>)\d"`
+n=`curl -u email:password --silent "https://mail.google.com/mail/feed/atom" | grep -Po "(?<=<fullcount>)\d+"`
 
 if [ $n -ge 0 ]
 then
