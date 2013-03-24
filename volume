@@ -1,11 +1,8 @@
 #!/bin/zsh
 
-info=`amixer sget Master`
-s=`echo $info | grep -Pwo "o[nf]f?"` 
-
-if [ "$s" =  "on" ]
+if [ `pamixer --get-mute` = "true" ]
 then
-    echo `echo $info |grep -Po "\d+%"`
+    echo "Muted"
 else
-    echo "off"
+    echo "`pamixer --get-volume`%"
 fi 

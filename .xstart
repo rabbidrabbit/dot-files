@@ -1,11 +1,15 @@
 #set the cursor
 xsetroot -cursor_name left_ptr -solid '#121212'
 xsetroot -solid '#2d2d2d'
-setxkbmap -layout gb
+#setxkbmap -layout gb
+setxkbmap -layout dvp
 xset +fp /usr/share/fonts/local
 xset fp rehash
 xset m 1 4
 xbindkeys
 /usr/lib/notification-daemon-1.0/notification-daemon& #recent bug on arch. Most likely patched upstream.
 udiskie& #automount usb :)
-exec xmonad
+start-pulseaudio-x11
+dropboxd &
+xrdb -merge ~/.Xdefaults
+exec  $HOME/.cabal/bin/xmonad

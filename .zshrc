@@ -32,11 +32,24 @@ PROMPT=$'┌──[%{$fg[cyan]%}%n@%m%{$reset_color%}]-[%{${fg[magenta]}%}%B%~%b
 PROMPT2="%{"$'\e[1A'"├"$'\e[1B\e[1D'"%}\
 └─%_─>"
 
+#awesome less
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+
 alias ls='ls --color'
 alias cd..='cd ..'
 alias grep='grep --color'
 alias diff='colordiff'
 alias tmux='tmux -2'
+alias fact="links -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
+alias hibernate="systemctl hibernate"
+alias skype='xhost +local: && su skype -c skype'
+alias v='f -e vim' # quick opening files with vim
+alias m='f -e mplayer' # quick opening files with mplayer
+alias o='a -e xdg-open' # quick opening files with xdg-open
+alias git='hub'
+alias clj='rlwrap clj'
+
 
  GRC=`which grc`
     if [ "$TERM" != dumb ] && [ -n GRC ]
@@ -117,5 +130,5 @@ bindkey '^i' expand-or-complete-prefix
 export EDITOR='vim'
 export BROWSER='/usr/bin/google-chrome'
 export GOPATH='/home/jonathan/go'
-export PATH=$PATH:/home/jonathan/.gem/ruby/1.9.1/bin:/opt/clojurescript/bin/:/root/.gem/ruby/1.9.1/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/home/jonathan/bin
+export PATH=$PATH:/home/jonathan/.gem/ruby/1.9.1/bin:/opt/clojurescript/bin/:/root/.gem/ruby/1.9.1/bin:/home/jonathan/x-tools/arm-unknown-eabi/bin
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig

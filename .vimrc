@@ -71,6 +71,7 @@ set background=dark " When set to "dark", Vim will try to use colors that look
                     " try to use colors that look good on a light background.
                     " Any other value is illegal.
  
+"colorscheme solarized
 set mouse=a         " Enable the use of the mouse.
 
 set t_Co=16         " Fixes the solarized colorscheme
@@ -104,6 +105,14 @@ function! TabOrComplete()
     endif
 endfunction
 
-"inoremap <Tab> <C-R>=TabOrComplete()<CR>
+ca w!! w !sudo tee >/dev/null "%"
 
-ca w!! w !sudo tee >/dev/null "%" "save a file as root. Use :w!! and vim will ask you for your password
+set undodir=~/.vim/undodir
+set undofile
+
+set viewoptions=folds,options,cursor
+set viewdir=~/.vim/viewdir
+au  BufWinLeave * mkview
+au  VimEnter * silent! loadview
+
+"inoremap <Tab> <C-R>=TabOrComplete()<CR>

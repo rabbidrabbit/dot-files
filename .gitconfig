@@ -5,6 +5,7 @@
     branch = auto
     diff = auto
     status = auto
+	ui = 1
 
 [color "branch"]
     current = yellow reverse
@@ -24,8 +25,14 @@
 [giggle]
 	main-window-maximized = true
 	main-window-geometry = 0x0+0+0
-	history-view-vpane-position = 333
+	history-view-vpane-position = 335
 	main-window-view = HistoryView
 	file-view-vpane-position = 666
 [log]
 	date = local
+[core]
+	autocrlf = input
+[help]
+	autocorrect = 1
+[rerere]
+	enabled = 1
